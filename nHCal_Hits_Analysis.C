@@ -206,9 +206,11 @@ void nHCal_Hits_Analysis(){
 	
 	int pdg = TMath::Abs(partPdg[i]);
 	TVector3 trueMom(partMomX[i],partMomY[i],partMomZ[i]);
-	float trueEta = trueMom.PseudoRapidity();
-	float truePhi = trueMom.Phi();
+	float trueEta   = trueMom.PseudoRapidity();
 	float trueTheta = trueMom.Theta();
+	float truePhi   = trueMom.Phi();
+	float trueP     = trueMom.Mag();
+	float truePt    = trueMom.Perp();
 
 	// according to Wouter, "end" is exclusive for daughters - so no "+1" and stop 1 before "end" (can't do it for parents, otherwise we get negative indices)
 	int i_parents_begin = parents_begin[i];
@@ -520,7 +522,7 @@ void nHCal_Hits_Analysis(){
 	partEta->Fill(trueEta);
 	
 	// Fill all true momentum:
-	partMom->Fill(trueMom.Mag());
+	partMom->Fill(trueP);
 	
 	// Fill all true phi: 
 	partPhi->Fill(truePhi);
