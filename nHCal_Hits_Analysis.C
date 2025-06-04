@@ -166,6 +166,8 @@ void nHCal_Hits_Analysis(){
   int n_this_decay_phi_kaonpm_k2_rec_nHCal = 0;
   int n_this_decay_phi_kaonpm_k2_rec_bHCal = 0;
   int n_this_decay_phi_kaonpm_k2_rec_lfHCal = 0;
+  //Array for reco decay daughter HCal acceptances (nHCal - bHCal - lfHCal - any HCal)[k1][k2] - concept taken from Dhruv: 
+  float HCalMatrixphi_kaonpm_rec[4][4];
   for (int k1 = 0; k1 <=3; k1++)
     {
       for (int k2 = 0; k2 <=3; k2++)
